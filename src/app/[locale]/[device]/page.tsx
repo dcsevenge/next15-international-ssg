@@ -1,11 +1,11 @@
 import { getI18n } from "@/locales/server";
 import { setStaticParamsLocale } from "next-international/server";
 
-export async function generateStaticParams() {
-  return [];
-}
+// export async function generateStaticParams() {
+//   return [];
+// }
 
-export const revalidate = 60;
+// export const revalidate = 60;
 
 export default async function DevicePage({
   params,
@@ -13,7 +13,7 @@ export default async function DevicePage({
   params: Promise<{ locale: string; device: string }>;
 }) {
   const { locale, device } = await params;
-  setStaticParamsLocale(locale);
+  // setStaticParamsLocale(locale);
   const t = await getI18n();
   return (
     <div>
