@@ -1,5 +1,6 @@
 // middleware.ts
 import { createI18nMiddleware } from "next-international/middleware";
+import { headers } from "next/headers";
 import { NextRequest, NextResponse, userAgent } from "next/server";
 
 const I18nMiddleware = createI18nMiddleware({
@@ -18,7 +19,9 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL('/th', request.url));
   }
   console.log('rewrite', pathname, `/${locale}/${viewport}${newUrl}`);
-  return NextResponse.rewrite(new URL(`/${locale}/${viewport}${newUrl}`, request.url));
+  return NextResponse.rewrite(new URL(`/${locale}/${viewport}${newUrl}`, request.url), {
+    headers: res.headers,
+  });
 }
 
 export const config = {
