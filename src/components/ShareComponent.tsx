@@ -34,7 +34,7 @@ export default async function ShareComponent() {
 async function getMegamenu() {
   const locale = await getCurrentLocale();
   const t = await getScopedI18n("navigation");
-  const result = await fetch(`http://localhost:3000/api/category`);
+  const result = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/category`);
   const data = await result.json();
   const menuListFromLocale = mapCategories(data, locale);
   menuListFromLocale.unshift({
