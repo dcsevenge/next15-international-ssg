@@ -7,6 +7,8 @@ import { setStaticParamsLocale } from "next-international/server";
 
 // export const revalidate = 60;
 
+export const dynamic = "force-dynamic"; // Ensure SSR if needed
+
 export default async function DevicePage({
   params,
 }: {
