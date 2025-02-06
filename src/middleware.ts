@@ -22,7 +22,7 @@ export function middleware(request: NextRequest) {
   }
   // return res;
   console.log('rewrite', pathname, `/${locale}/${viewport}${newUrl}`);
-  return NextResponse.redirect(new URL(`/${locale}/${viewport}${newUrl}`, request.url), {
+  return NextResponse.rewrite(new URL(`/${locale}/${viewport}${newUrl}`, request.url), {
     headers: res.headers,
   });
 }
