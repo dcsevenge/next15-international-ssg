@@ -12,7 +12,7 @@ export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const { device } = userAgent(request);
   const viewport = device.type === "mobile" ? "mobile" : "desktop";
-  const res = I18nMiddleware(request);
+  return I18nMiddleware(request);
   const locale = res.headers.get("x-next-locale");
   const newUrl = pathname.substring(3);
   if (pathname === '/') {
